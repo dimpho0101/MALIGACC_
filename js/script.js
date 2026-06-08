@@ -35,7 +35,8 @@ function handleFormSubmit(form) {
     name: formData.get('name'),
     email: formData.get('email'),
     subject: formData.get('subject'),
-    message: formData.get('message')
+    message: formData.get('message'),
+    phone: formData.get('phone')
   };
 
   // Validate form
@@ -50,7 +51,27 @@ function handleFormSubmit(form) {
     return;
   }
 
-  // Show success message
+  // If a WhatsApp number is provided on the form, open WhatsApp Web with a prefilled message
+  const waNumber = form.dataset.whatsapp; // e.g. 27829220043 (country code + number, no leading +)
+  if (waNumber) {
+    const lines = [];
+    lines.push(`Name: ${data.name}`);
+    if (data.phone) lines.push(`Phone: ${data.phone}`);
+    lines.push(`Email: ${data.email}`);
+    lines.push(`Subject: ${data.subject}`);
+    lines.push(`Message: ${data.message}`);
+
+    const text = lines.join('\n');
+    const waUrl = `https://wa.me/${encodeURIComponent(waNumber)}?text=${encodeURIComponent(text)}`;
+
+    showNotification('Opening WhatsApp...', 'success');
+    window.open(waUrl, '_blank');
+    // Do not reset immediately so user can confirm in WhatsApp if needed
+    console.log('Opening WhatsApp URL:', waUrl);
+    return;
+  }
+
+  // Fallback: Show success message and reset form
   showNotification('Thank you! We will contact you soon.', 'success');
   form.reset();
 
