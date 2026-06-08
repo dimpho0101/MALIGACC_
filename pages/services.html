@@ -11,7 +11,8 @@
   <!-- Navigation -->
   <header>
     <nav>
-      <div class="logo">MALI<span>ACC</span></div>
+      <div class="logo">MALIG<span>ACC</span></div>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -30,40 +31,91 @@
     </div>
   </section>
 
+  <!-- All Products & Services (detailed) -->
+  <section>
+    <div class="container">
+      <h2>All Products & Services</h2>
+      <p>MALIGACC Solutions is a registered legal entity, based in Gauteng, providing a full suite of business support services and solutions majoring in Business Analysis, Project Management, Accounting and Reporting, Tax services, HR services, Advisory services, Governance support, Internal control processes, Statutory compliance services, IT and business process automation.</p>
+
+      <ol style="margin-top: 2rem; line-height: 1.6; color: #333;">
+        <li><strong>Business Analysis</strong> – Identifying what is lacking or hindering the organisation from operating optimally with special emphasis on the organisation’s structure, controls, policies, processes and procedures; and recommending effective solutions to the identified gaps.</li>
+        <li><strong>Project Management</strong> – Steering projects from start through its lifecycle to the end, ensuring detailed project work plans, alignment with business objectives, milestone management, team coordination, and reporting project performance at each recorded milestone.</li>
+        <li><strong>Accounting and Reporting</strong> – Bookkeeping and subsidiary accounting services, management accounting and reporting, review and preparation of Financial Statements for all legal entities (IFRS, GRAP, IPSAS).</li>
+        <li><strong>Tax services</strong> – Income Tax for companies, close corporations and individuals, VAT registrations and returns and tax planning and advisory services.</li>
+        <li><strong>HR and payroll administration services</strong> – Outsourcing of full payroll, EMP201 monthly returns and submissions, EMP501 bi-annual submissions and related statutory payroll services, UIF, SDL and COIDA compliance.</li>
+        <li><strong>Advisory services</strong> – Provision of practical advice on business issues and financial matters, tailored to meet the desired organisational objectives.</li>
+        <li><strong>Governance support and risk management</strong> – Provision of expert advice on risk management and review of not only financial risks but other risk areas that can have a dramatic impact on the continuing success of an entity.</li>
+        <li><strong>Policy development and internal control processes</strong> – Drafting of policies, procedures, controls and processes from scratch, and reviewing the current ones for them to be as effective as possible.</li>
+        <li><strong>IT services and automation of business processes</strong> – Ensuring that business entities are equipped with the right software solutions, support and service that will enable them to streamline their accounting and management processes across all business functions.</li>
+        <li><strong>Statutory compliance services</strong> – Assisting in putting in place various policies and procedures designed to ensure that business entities operate within applicable laws, regulations and ethical standards, so as to avoid exposure to penalties, fines or litigation.</li>
+      </ol>
+
+      <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Bookkeeping</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Payroll (UIF, SDL, EMP201, EMP501)</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Reporting (IFRS/GRAP/IPSAS/Financial Statements)</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Income Tax (Companies, Close Corporations, Trusts, Individuals)</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">VAT Reconciliations</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Tax Registrations & Returns</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Statutory Compliance & Reviews</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Governance, Risk Management & Internal Audit</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">Project Management & Business Analysis</div>
+        <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e8eef0;">IT Systems & Process Automation</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Main Services -->
   <section>
     <div class="container">
-      <h2>Professional Services Offering</h2>
+      <h2>Professional Services</h2>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>Accounting & Bookkeeping</h3>
-          <p>Complete accounting services including general ledger management, financial statements preparation, bookkeeping, and financial analysis. We handle all aspects of your financial records with precision and attention to detail.</p>
+          <img src="../assets/accounting.svg" alt="Accounting logo" class="service-logo">
+          <h3>Accounting operations and reporting</h3>
+          <ul>
+            <li>Bookkeeping and general ledger management</li>
+            <li>Payroll administration (UIF, SDL, EMP201, EMP501)</li>
+            <li>Management accounts and subsidiary accounting</li>
+            <li>Financial statements preparation (IFRS, GRAP, IPSAS)</li>
+            <li>Financial reporting and statutory returns</li>
+          </ul>
         </div>
+
         <div class="service-card">
-          <div class="service-icon">💰</div>
-          <h3>Tax Planning & Advisory</h3>
-          <p>Strategic tax planning and advisory services for both individuals and businesses. We help optimize your tax position while ensuring full compliance with SARS regulations and other statutory requirements.</p>
+          <img src="../assets/tax.svg" alt="Tax logo" class="service-logo">
+          <h3>Tax</h3>
+          <ul>
+            <li>Income tax for companies, close corporations, trusts and individuals</li>
+            <li>VAT reconciliations and VAT registrations</li>
+            <li>Tax registrations, submissions and returns filing</li>
+            <li>Tax planning, advisory and dispute resolution</li>
+            <li>Tax opinions and professional reviews</li>
+          </ul>
         </div>
+
         <div class="service-card">
-          <div class="service-icon">🏢</div>
-          <h3>Business Consulting</h3>
-          <p>Management consulting, business strategy development, and operational improvement services. We help organizations enhance efficiency, profitability, and long-term sustainable growth.</p>
+          <img src="../assets/advisory.svg" alt="Advisory logo" class="service-logo">
+          <h3>Advisory</h3>
+          <ul>
+            <li>Business advisory and strategic planning</li>
+            <li>Governance, risk management and internal controls reviews</li>
+            <li>Internal audit services and investigations</li>
+            <li>Policy development and internal control processes</li>
+            <li>Reviews, professional and legal opinions</li>
+          </ul>
         </div>
+
         <div class="service-card">
-          <div class="service-icon">📋</div>
-          <h3>Compliance & Audit</h3>
-          <p>Comprehensive compliance services ensuring your business adheres to all regulatory requirements. Internal audit services to strengthen governance and internal controls.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👥</div>
-          <h3>HR & Payroll Services</h3>
-          <p>Professional HR and payroll management services including employee administration, salary administration, and statutory compliance with employment legislation.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">⚖️</div>
-          <h3>Corporate Services</h3>
-          <p>Corporate secretarial services, company registration, annual compliance filings, and general governance support for companies and close corporations.</p>
+          <img src="../assets/management.svg" alt="Management logo" class="service-logo">
+          <h3>Management services</h3>
+          <ul>
+            <li>Project management and business analysis</li>
+            <li>IT systems implementation and process automation</li>
+            <li>Business process improvements and transformation</li>
+            <li>Corporate secretarial and compliance support</li>
+            <li>Business rescue and turnaround advisory</li>
+          </ul>
         </div>
       </div>
     </div>

@@ -55,6 +55,17 @@ nav {
   gap: 2rem;
 }
 
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
 .nav-links a {
   text-decoration: none;
   color: var(--text-color);
@@ -264,6 +275,20 @@ section h2::after {
 .service-card h3 {
   color: var(--primary-color);
   margin-bottom: 1rem;
+}
+
+.service-logo {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+.service-card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  text-align: left;
 }
 
 .service-card p {
@@ -485,6 +510,35 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  /* Mobile nav: hide links until toggled */
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  /* Reduce padding and font sizes for small screens */
+  .service-card {
+    padding: 1.2rem;
+  }
+
+  .service-logo {
+    width: 72px;
+  }
+
   section h2 {
     font-size: 2rem;
   }
@@ -518,5 +572,13 @@ footer {
 
   section {
     padding: 3rem 1rem;
+  }
+
+  .service-logo {
+    width: 60px;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
   }
 }

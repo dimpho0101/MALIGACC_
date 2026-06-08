@@ -2,7 +2,19 @@
 document.addEventListener('DOMContentLoaded', function() {
   updateActiveNavLink();
   setupFormHandling();
+  setupNavToggle();
 });
+
+function setupNavToggle() {
+  const btns = document.querySelectorAll('.menu-toggle');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const navLinks = btn.parentElement.querySelector('.nav-links');
+      if (!navLinks) return;
+      navLinks.classList.toggle('open');
+    });
+  });
+}
 
 function updateActiveNavLink() {
   const links = document.querySelectorAll('.nav-links a');
@@ -29,54 +41,32 @@ function setupFormHandling() {
   }
 }
 
-function handleFormSubmit(form) {
+async function handleFormSubmit(form) {
   const formData = new FormData(form);
-  const data = {
+  const payload = {
     name: formData.get('name'),
+    phone: formData.get('phone'),
     email: formData.get('email'),
     subject: formData.get('subject'),
     message: formData.get('message'),
-    phone: formData.get('phone')
+    // optional: to: '27829220043'
   };
 
-  // Validate form
-  if (!data.name || !data.email || !data.subject || !data.message) {
-    showNotification('Please fill in all fields', 'error');
-    return;
+  try {
+    showNotification('Sending message...', 'success');
+    const resp = await fetch('/send-whatsapp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const json = await resp.json();
+    if (!resp.ok) throw new Error(JSON.stringify(json));
+    showNotification('Message sent successfully', 'success');
+    form.reset();
+  } catch (err) {
+    console.error(err);
+    showNotification('Failed to send message. Try again later.', 'error');
   }
-
-  // Validate email
-  if (!isValidEmail(data.email)) {
-    showNotification('Please enter a valid email address', 'error');
-    return;
-  }
-
-  // If a WhatsApp number is provided on the form, open WhatsApp Web with a prefilled message
-  const waNumber = form.dataset.whatsapp; // e.g. 27829220043 (country code + number, no leading +)
-  if (waNumber) {
-    const lines = [];
-    lines.push(`Name: ${data.name}`);
-    if (data.phone) lines.push(`Phone: ${data.phone}`);
-    lines.push(`Email: ${data.email}`);
-    lines.push(`Subject: ${data.subject}`);
-    lines.push(`Message: ${data.message}`);
-
-    const text = lines.join('\n');
-    const waUrl = `https://wa.me/${encodeURIComponent(waNumber)}?text=${encodeURIComponent(text)}`;
-
-    showNotification('Opening WhatsApp...', 'success');
-    window.open(waUrl, '_blank');
-    // Do not reset immediately so user can confirm in WhatsApp if needed
-    console.log('Opening WhatsApp URL:', waUrl);
-    return;
-  }
-
-  // Fallback: Show success message and reset form
-  showNotification('Thank you! We will contact you soon.', 'success');
-  form.reset();
-
-  // In a real application, you would send this data to a server
-  console.log('Form submitted:', data);
 }
 
 function isValidEmail(email) {
